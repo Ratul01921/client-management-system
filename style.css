@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+body {
+    background-image: url('bg-image1.jpg');
+    color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-family: sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 48px;
+    text-shadow: 5px 5px 5px black;
+}
+
+.cms-table-container {
+    font-size: 20px;
+    margin-top: 35px;
+    width: 80%;
+    margin: auto;
+}
+
+.cms-table-row {
+    display: flex;
+}
+
+.cms-table-column {
+    background-color: rgb(127,146,186);
+    margin: 2px;
+    padding: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cms-name {
+    flex-basis: 20%;
+}
+
+.cms-phone {
+    flex-basis: 20%
+}
+
+.cms-address {
+    flex-grow: 2;
+    flex-basis: 20%;
+}
+
+.cms-header {
+    background-color: rgb(127,146,186);
+    font-weight: bolder;
+}
+
+.cms-edit, .cms-delete, .cms-add-entry-column {
+    flex-basis: 5%;
+    text-align: center;
+    cursor: pointer;
+}
+
+#newPersonModal {
+    width: 500px;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 99;
+    top: 50px;
+    position: absolute;
+    margin-left: calc(50% - 250px);
+    background-color: rgb(127,146,186);
+}
+
+#newPersonModal input {
+    display: block;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 3px;
+    width: 100%;
+}
+
+.input-err {
+    background-color: red;
+}
+
+#backdrop {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 50;
+    top: 0;
+    left: 0;
+}
+
+#newPersonSubmitBtn {
+    background-color: rgb(47, 95, 151);
+}
+
+#newPersonCancelBtn {
+    background-color: rgb(151, 47, 47);
+}
+
+button {
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    float: right;
+    margin: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    padding: 13px;
+}
+
+.disable-modal {
+    visibility: hidden;
+}
+
+.enable-modal {
+    visibility: visible;
+}
+
+i{
+    pointer-events: none;
+}
+
+
+
+
+
+
