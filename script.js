@@ -2,13 +2,15 @@ const tableKey = 'cms-table';
 
 let cmsTable;
 let cmsTableDemo = {
-    'Dave Rapoza': {
-        'phone': '766-786-7868',
-        'address': '1234 Sunshine Ave, Denver, Co, 80125'
+    'Shahriar Ratul': {
+        'phone': '01921671587',
+        'roll': '632695',
+        'address': ' Chuadanga, asmankhali, 7210'
     },
-    'Wylie Beckert': {
-        'phone': '555-123-6789',
-        'address': '9876 Artist Way, Seattle, WA, 66541'
+    'MD Ratul': {
+        'phone': '01934959187',
+        'roll': '632695',
+        'address': 'Magura, magura sodor, 7600'
     }    
 }; 
 
@@ -36,6 +38,7 @@ let refreshDOMTable = () => {
         let currentRow = document.createElement('div');
         let currentNameCol = document.createElement('div');
         let currentPhoneCol = document.createElement('div');
+        let currentRollCol = document.createElement('div');
         let currentAddressCol = document.createElement('div');
         let currentEditBtn = document.createElement('div');
         let currentDeleteBtn = document.createElement('div');
@@ -43,12 +46,14 @@ let refreshDOMTable = () => {
         currentRow.className = 'cms-table-row';
         currentNameCol.className = 'cms-table-column cms-name';
         currentPhoneCol.className = 'cms-table-column cms-phone';
+        currentRollCol.className = 'cms-table-column cms-roll';
         currentAddressCol.className = 'cms-table-column cms-address';
         currentEditBtn.className = 'cms-table-column cms-edit';
         currentDeleteBtn.className = 'cms-table-column cms-delete';
 
         currentNameCol.innerHTML = cmsTableKeys[i];
         currentPhoneCol.innerHTML = cmsTable[cmsTableKeys[i]].phone;
+        currentRollCol.innerHTML = cmsTable[cmsTableKeys[i]].roll;
         currentAddressCol.innerHTML = cmsTable[cmsTableKeys[i]].address;
 
         currentEditBtn.innerHTML = '<i class="fas fa-edit"></i>';
@@ -56,6 +61,7 @@ let refreshDOMTable = () => {
 
         currentRow.appendChild(currentNameCol);
         currentRow.appendChild(currentPhoneCol);
+        currentRow.appendChild(currentRollCol);
         currentRow.appendChild(currentAddressCol);
         currentRow.appendChild(currentEditBtn);
         currentRow.appendChild(currentDeleteBtn);
@@ -66,6 +72,7 @@ let refreshDOMTable = () => {
     let enableDisableNewUserModal = (option) => {
         let newPersonName = document.getElementById('newPersonName');
         let newPersonPhone = document.getElementById('newPersonPhone');
+        let newPersonRoll = document.getElementById('newPersonRoll');
         let newPersonAddress = document.getElementById('newPersonAddress');
         newPersonName.value = '';
         newPersonPhone.value = '';
@@ -89,6 +96,7 @@ let refreshDOMTable = () => {
     newPersonSubmitBtn.addEventListener('click', () => {
         let newPersonName = document.getElementById('newPersonName').value.trim();
         let newPersonPhone = document.getElementById('newPersonPhone').value.trim();
+        let newPersonRoll = document.getElementById('newPersonRoll').value.trim();
         let newPersonAddress = document.getElementById('newPersonAddress').value.trim();
     
         if(newPersonName === '')
@@ -99,17 +107,23 @@ let refreshDOMTable = () => {
         if(newPersonPhone === '')
             document.getElementById('newPersonPhone').className = 'input-err';
         else 
-            document.getElementById('newPersonPhone').className = '';   
+            document.getElementById('newPersonPhone').className = ''; 
+          
+        if(newPersonRoll === '')
+            document.getElementById('newPersonRoll').className = 'input-err';
+        else 
+            document.getElementById('newPersonRoll').className = '';   
 
         if(newPersonAddress === '')
             document.getElementById('newPersonAddress').className = 'input-err';
         else 
             document.getElementById('newPersonAddress').className = ''; 
             
-        if(newPersonName !== '' && newPersonPhone !== '' && newPersonAddress !== '' ) {
+        if(newPersonName !== '' && newPersonPhone !== '' && newPersonRoll !== '' && newPersonAddress !== '' ) {
             let newPerson = {};
             cmsTable[newPersonName] = {
                 'phone': newPersonPhone,
+                'roll': newPersonRoll,
                 'address': newPersonAddress
             }
             localStorage.setItem(tableKey, JSON.stringify(cmsTable));
@@ -134,9 +148,11 @@ let refreshDOMTable = () => {
 
             let newPersonName = document.getElementById('newPersonName');
             let newPersonPhone = document.getElementById('newPersonPhone');
+            let newPersonRoll = document.getElementById('newPersonRoll');
             let newPersonAddress = document.getElementById('newPersonAddress');
             newPersonName.value = nameToEdit;
             newPersonPhone.value = personToEdit.phone;
+            newPersonRoll.value = personToEdit.Roll;
             newPersonAddress.value = personToEdit.address; 
             
             enableDisableNameInput('disable');
